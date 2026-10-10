@@ -24,8 +24,8 @@ export const CompetitionResults = ({
       : '検索した候補をここに表示します。'
 
   return (
-    <section aria-labelledby="results-heading">
-      <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+    <section aria-labelledby="results-heading" className="grid gap-5">
+      <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2
             className="text-xl font-semibold text-stone-950"
@@ -53,11 +53,11 @@ export const CompetitionResults = ({
           ))}
         </div>
       ) : (
-        <Card className="gap-0 rounded-2xl border-dashed border-stone-300 bg-white p-8 text-center">
+        <Card className="gap-2 rounded-2xl border-dashed border-stone-300 bg-white p-8 text-center">
           <p className="font-semibold text-stone-800">
             まだ検索結果はありません。
           </p>
-          <span className="mt-2 block text-sm leading-6 text-stone-600">
+          <span className="block text-sm leading-6 text-stone-600">
             経験や関心を検索クエリに書いて、検索してみてください。
           </span>
         </Card>

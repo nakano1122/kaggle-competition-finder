@@ -52,8 +52,8 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
   const displayedCompetitions = selectedResult?.competitions ?? []
 
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 sm:px-8 sm:py-14">
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-5 border-b border-stone-200 pb-6">
+    <main className="mx-auto grid w-full min-w-0 max-w-6xl flex-1 gap-8 px-5 py-10 sm:px-8 sm:py-14">
+      <div className="flex flex-wrap items-end justify-between gap-5 border-b border-stone-200 pb-6">
         <div className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight text-stone-950 sm:text-4xl">
             コンペの候補を確認する
@@ -71,11 +71,11 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
               検索条件がありません
             </CardTitle>
           </CardHeader>
-          <CardContent className="pb-8 text-sm leading-7 text-stone-600">
-            研究内容や興味を入力してから、コンペを検索してください。
+          <CardContent className="grid gap-5 pb-8 text-sm leading-7 text-stone-600">
+            <p>研究内容や興味を入力してから、コンペを検索してください。</p>
             <Button
               asChild
-              className="mx-auto mt-5 bg-teal-800 hover:bg-teal-900"
+              className="justify-self-center bg-teal-800 hover:bg-teal-900"
             >
               <Link href="/search">検索画面へ進む</Link>
             </Button>

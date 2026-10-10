@@ -47,8 +47,16 @@
 html,
 body {
   min-height: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
 }

@@ -34,13 +34,13 @@ export const CompetitionCard = ({
 }: CompetitionCardProps) => {
   return (
     <article>
-      <Card className="gap-0 rounded-2xl border-stone-200 bg-white p-6 shadow-sm">
+      <Card className="gap-5 rounded-2xl border-stone-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <div className="min-w-0 flex-1 basis-0">
+          <div className="grid min-w-0 flex-1 basis-0 gap-2">
             <p className="text-xs font-semibold tracking-[0.14em] text-amber-800">
               {competition.category ?? 'Uncategorized'}
             </p>
-            <h3 className="mt-2 break-words text-xl font-semibold text-stone-950">
+            <h3 className="break-words text-xl font-semibold text-stone-950">
               {competition.title}
             </h3>
           </div>
@@ -48,7 +48,7 @@ export const CompetitionCard = ({
             モック候補
           </Badge>
         </div>
-        <dl className="mt-5 grid gap-4 text-sm leading-6 text-stone-700">
+        <dl className="grid gap-4 text-sm leading-6 text-stone-700">
           <div>
             <dt className="font-semibold text-stone-950">締切</dt>
             <dd>{formatDate(competition.deadline)}</dd>
@@ -59,26 +59,26 @@ export const CompetitionCard = ({
           </div>
         </dl>
         <section
-          className="mt-5 rounded-xl bg-stone-50 p-4"
+          className="grid gap-2 rounded-xl bg-stone-50 p-4"
           aria-label="日本語要約"
         >
           <h4 className="font-semibold text-stone-950">日本語要約（モック）</h4>
-          <p className="mt-2 text-sm leading-6 text-stone-700">
+          <p className="text-sm leading-6 text-stone-700">
             {summarizeCompetition(competition)}
           </p>
         </section>
         <section
-          className="mt-3 rounded-xl bg-amber-50 p-4"
+          className="grid gap-2 rounded-xl bg-amber-50 p-4"
           aria-label="推薦理由"
         >
           <h4 className="font-semibold text-stone-950">
             実績との関連性（モック）
           </h4>
-          <p className="mt-2 text-sm leading-6 text-stone-700">
+          <p className="text-sm leading-6 text-stone-700">
             {explainRelevance(competition, query)}
           </p>
         </section>
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3">
           <Button
             asChild
             className="font-semibold text-amber-800 hover:bg-amber-50"

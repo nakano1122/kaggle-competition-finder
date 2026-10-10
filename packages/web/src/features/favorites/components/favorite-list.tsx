@@ -24,7 +24,7 @@ export const FavoriteList = ({ favorites }: { favorites: Favorite[] }) => {
         <ul className="grid gap-4">
           {favorites.map((favorite) => (
             <li
-              className="border-b border-stone-100 pb-4 last:border-0 last:pb-0"
+              className="flex flex-col gap-1 border-b border-stone-100 pb-4 last:border-0 last:pb-0"
               key={favorite.competitionId}
             >
               <Link
@@ -36,7 +36,7 @@ export const FavoriteList = ({ favorites }: { favorites: Favorite[] }) => {
                 {favorite.title}
               </Link>
               <time
-                className="mt-1 block text-xs text-stone-500"
+                className="block text-xs text-stone-500"
                 dateTime={favorite.createdAt}
               >
                 {formatDate(favorite.createdAt)}

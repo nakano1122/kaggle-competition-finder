@@ -39,18 +39,18 @@ export const SearchStartPage = () => {
 
   return (
     <main className="flex-1 bg-stone-50 text-stone-950">
-      <div className="mx-auto w-full max-w-2xl px-5 py-10 sm:px-8 sm:py-14">
-        <div className="mb-8">
+      <div className="mx-auto grid w-full min-w-0 max-w-2xl gap-8 px-5 py-10 sm:px-8 sm:py-14">
+        <div className="grid gap-3">
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             研究内容・興味から、Kaggleコンペを探す
           </h1>
-          <p className="mt-3 text-sm leading-7 text-stone-600 sm:text-base">
+          <p className="text-sm leading-7 text-stone-600 sm:text-base">
             取り組みと興味を手がかりに、Kaggleコンペを検索します。
           </p>
         </div>
 
-        <form className="grid gap-5" onSubmit={handleSubmit}>
-          <Card className="gap-0 rounded-2xl border-stone-200 bg-white py-0 shadow-sm">
+        <form className="grid min-w-0 gap-5" onSubmit={handleSubmit}>
+          <Card className="min-w-0 gap-0 overflow-hidden rounded-2xl border-stone-200 bg-white py-0 shadow-sm">
             <CardHeader className="gap-1 border-b border-stone-100 px-5 py-5 sm:px-6">
               <CardTitle className="text-base text-stone-900">
                 研究内容・興味
@@ -59,7 +59,7 @@ export const SearchStartPage = () => {
                 これまでの経験や、これから取り組みたいテーマを書いてください。
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 px-5 pt-5 sm:px-6">
+            <CardContent className="grid min-w-0 gap-4 p-5 sm:p-6">
               <label className="sr-only" htmlFor="profile">
                 研究内容・興味
               </label>
@@ -98,7 +98,7 @@ export const SearchStartPage = () => {
             </CardFooter>
           </Card>
 
-          <Card className="gap-0 rounded-2xl border-stone-200 bg-white py-0 shadow-sm">
+          <Card className="min-w-0 gap-0 overflow-hidden rounded-2xl border-stone-200 bg-white py-0 shadow-sm">
             <CardHeader className="gap-1 border-b border-stone-100 px-5 py-5 sm:px-6">
               <CardTitle className="text-base text-stone-900">
                 LLMで生成したクエリ
@@ -107,7 +107,7 @@ export const SearchStartPage = () => {
                 研究内容・興味から作成した日本語クエリです。必要なら編集できます。
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 px-5 pt-5 sm:px-6">
+            <CardContent className="grid min-w-0 gap-4 p-5 sm:p-6">
               <label className="sr-only" htmlFor="query">
                 LLMで生成したクエリ
               </label>
