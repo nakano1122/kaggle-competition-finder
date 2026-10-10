@@ -1,13 +1,9 @@
-import type {
-  CreateFavoriteRequest,
-  Favorite,
-} from '@kaggle-competition-finder/schemas'
+import type { FavoriteCompetition } from '@/domain/entities/favorite-competition'
 
 export type FavoriteCompetitionRepository = {
   create: (
-    favorite: CreateFavoriteRequest,
-    createdAt: string,
-  ) => Promise<Favorite | undefined>
+    favorite: FavoriteCompetition,
+  ) => Promise<FavoriteCompetition | undefined>
   delete: (competitionId: string) => Promise<boolean>
-  list: () => Promise<Favorite[]>
+  list: () => Promise<FavoriteCompetition[]>
 }

@@ -3,4 +3,7 @@
   "name": "kaggle-competition-finder-api",
   "main": "src/index.ts",
   "compatibility_date": "2026-10-10",
+  "alias": {
+    "@schemas": "../schemas/src/index.ts",
+  },
 }

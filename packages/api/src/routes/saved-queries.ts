@@ -3,13 +3,13 @@ import { Hono } from 'hono'
 import {
   createSavedQueryRequestSchema,
   deleteSavedQueryParamsSchema,
-} from '@kaggle-competition-finder/schemas'
+} from '@schemas'
 import {
   createSavedQuery,
   deleteSavedQuery,
   listSavedQueries,
-} from '../application/use-cases/manage-saved-queries'
-import type { ApiDependencies } from '../lib/di'
+} from '@/application/use-cases/manage-saved-queries'
+import type { ApiDependencies } from '@/lib/di'
 
 export const createSavedQueryRoutes = (dependencies: ApiDependencies) => {
   return new Hono()

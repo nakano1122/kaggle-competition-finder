@@ -2,7 +2,7 @@ import { SectionHeading } from '@/components/section-heading'
 import { Badge } from '@/components/shadcn-ui/badge'
 import { Card } from '@/components/shadcn-ui/card'
 import { formatDate } from '@/lib/format-date'
-import type { Favorite } from '@kaggle-competition-finder/schemas'
+import type { Favorite } from '@schemas'
 import Link from 'next/link'
 
 export const FavoriteList = ({ favorites }: { favorites: Favorite[] }) => {

@@ -3,13 +3,14 @@ import { Hono } from 'hono'
 import {
   createFavoriteRequestSchema,
   deleteFavoriteParamsSchema,
-} from '@kaggle-competition-finder/schemas'
+} from '@schemas'
+import { createFavoriteCompetition } from '@/domain/entities/favorite-competition'
 import {
-  createFavoriteCompetition,
   deleteFavoriteCompetition,
   listFavoriteCompetitions,
-} from '../application/use-cases/manage-favorite-competitions'
-import type { ApiDependencies } from '../lib/di'
+  saveFavoriteCompetition,
+} from '@/application/use-cases/manage-favorite-competitions'
+import type { ApiDependencies } from '@/lib/di'
 
 export const createFavoriteCompetitionRoutes = (
   dependencies: ApiDependencies,
@@ -23,20 +24,28 @@ export const createFavoriteCompetitionRoutes = (
       '/',
       zValidator('json', createFavoriteRequestSchema),
       async (context) => {
-        const favorite = await createFavoriteCompetition(
-          context.req.valid('json'),
-          dependencies.now(),
+        const favorite = createFavoriteCompetition({
+          ...context.req.valid('json'),
+          createdAt: dependencies.now(),
+        })
+
+        if (favorite === undefined) {
+          return context.json({ error: 'Favorite is invalid.' }, 400)
+        }
+
+        const savedFavorite = await saveFavoriteCompetition(
+          favorite,
           dependencies.favorites,
         )
 
-        if (favorite === undefined) {
+        if (savedFavorite === undefined) {
           return context.json(
             { error: 'Competition is already a favorite.' },
             409,
           )
         }
 
-        return context.json({ favorite }, 201)
+        return context.json({ favorite: savedFavorite }, 201)
       },
     )
     .delete(

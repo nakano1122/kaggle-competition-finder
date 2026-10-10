@@ -1,7 +1,7 @@
-import type { SavedQuery } from '@kaggle-competition-finder/schemas'
+import type { SavedSearchQuery } from '@/domain/entities/saved-search-query'
 
 export type SavedQueryRepository = {
-  create: (query: string, createdAt: string) => Promise<SavedQuery>
+  create: (query: string, createdAt: string) => Promise<SavedSearchQuery>
   delete: (id: string) => Promise<boolean>
-  list: () => Promise<SavedQuery[]>
+  list: () => Promise<SavedSearchQuery[]>
 }

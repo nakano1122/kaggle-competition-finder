@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import type { CompetitionCandidate } from '../../domain/competition-candidate'
-import type { CompetitionCatalog } from '../../domain/services/competition-catalog'
-import { searchCompetitions } from './search-competitions'
+import type { CompetitionCandidate } from '@/domain/competition-candidate'
+import type { CompetitionCatalog } from '@/domain/services/competition-catalog'
+import { searchCompetitions } from '@/application/use-cases/search-competitions'
 
 const createCandidate = (id: string): CompetitionCandidate => {
   return {

@@ -18,7 +18,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@schemas": ["../schemas/src/index.ts"]
     },
     "incremental": true,
     "resolveJsonModule": true

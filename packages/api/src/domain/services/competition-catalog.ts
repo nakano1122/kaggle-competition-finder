@@ -1,7 +1,7 @@
 import type {
   CompetitionCandidate,
   EnglishSearchKeyword,
-} from '../competition-candidate'
+} from '@/domain/competition-candidate'
 
 export type CompetitionCatalog = {
   findById: (id: string) => Promise<CompetitionCandidate | null>

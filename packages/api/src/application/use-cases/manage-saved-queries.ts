@@ -1,11 +1,11 @@
-import type { SavedQuery } from '@kaggle-competition-finder/schemas'
-import type { SavedQueryRepository } from '../../domain/repositories/saved-query-repository'
+import type { SavedSearchQuery } from '@/domain/entities/saved-search-query'
+import type { SavedQueryRepository } from '@/domain/repositories/saved-query-repository'
 
 export const createSavedQuery = (
   query: string,
   createdAt: string,
   repository: SavedQueryRepository,
-): Promise<SavedQuery> => {
+): Promise<SavedSearchQuery> => {
   return repository.create(query, createdAt)
 }
 

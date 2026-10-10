@@ -3,12 +3,12 @@ import { Hono } from 'hono'
 import {
   competitionDetailParamsSchema,
   competitionSearchQuerySchema,
-} from '@kaggle-competition-finder/schemas'
+} from '@schemas'
 import {
   getCompetition,
   searchCompetitions,
-} from '../application/use-cases/search-competitions'
-import type { ApiDependencies } from '../lib/di'
+} from '@/application/use-cases/search-competitions'
+import type { ApiDependencies } from '@/lib/di'
 
 export const createCompetitionRoutes = (dependencies: ApiDependencies) => {
   return new Hono()

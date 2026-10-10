@@ -1,18 +1,21 @@
-import type {
-  CreateFavoriteRequest,
-  Favorite,
-  Profile,
-  SavedQuery,
-} from '@kaggle-competition-finder/schemas'
-import type { FavoriteCompetitionRepository } from '../../domain/repositories/favorite-competition-repository'
-import type { ProfileRepository } from '../../domain/repositories/profile-repository'
-import type { SavedQueryRepository } from '../../domain/repositories/saved-query-repository'
+import {
+  createFavoriteCompetition,
+  type FavoriteCompetition,
+} from '@/domain/entities/favorite-competition'
+import type { ResearchAndDevelopmentExperience } from '@/domain/entities/research-and-development-experience'
+import {
+  createSavedSearchQuery,
+  type SavedSearchQuery,
+} from '@/domain/entities/saved-search-query'
+import type { FavoriteCompetitionRepository } from '@/domain/repositories/favorite-competition-repository'
+import type { ProfileRepository } from '@/domain/repositories/profile-repository'
+import type { SavedQueryRepository } from '@/domain/repositories/saved-query-repository'
 
 type MockUserData = {
-  favorites: Favorite[]
+  favorites: FavoriteCompetition[]
   nextQueryId: number
-  profile: Profile | null
-  queries: SavedQuery[]
+  profile: ResearchAndDevelopmentExperience | null
+  queries: SavedSearchQuery[]
 }
 
 export type MockUserDataRepositories = {
@@ -21,19 +24,19 @@ export type MockUserDataRepositories = {
   savedQueries: SavedQueryRepository
 }
 
-const defaultProfile: Profile = {
+const defaultProfile: ResearchAndDevelopmentExperience = {
   content:
     '情報検索と自然言語処理の研究に取り組み、Dense Retrieval と Reranking モデルを実装してきた。',
   updatedAt: '2026-10-10T00:00:00.000Z',
 }
 
-const defaultQuery: SavedQuery = {
+const defaultQuery: SavedSearchQuery = {
   id: 'query-1',
   query: '自然言語処理や情報検索の経験を活用できるコンペを探したい。',
   createdAt: '2026-10-10T00:00:00.000Z',
 }
 
-const defaultFavorite: Favorite = {
+const defaultFavorite: FavoriteCompetition = {
   competitionId: 'us-patent-phrase-to-phrase-matching',
   title: 'U.S. Patent Phrase to Phrase Matching',
   url: 'https://www.kaggle.com/competitions/us-patent-phrase-to-phrase-matching',
@@ -51,7 +54,10 @@ const createMockUserData = (): MockUserData => {
 
 const findProfile = (data: MockUserData) => Promise.resolve(data.profile)
 
-const saveProfile = (data: MockUserData, profile: Profile) => {
+const saveProfile = (
+  data: MockUserData,
+  profile: ResearchAndDevelopmentExperience,
+) => {
   data.profile = profile
   return Promise.resolve(profile)
 }
@@ -63,7 +69,15 @@ const createSavedQuery = (
   query: string,
   createdAt: string,
 ) => {
-  const savedQuery = { id: `query-${data.nextQueryId}`, query, createdAt }
+  const savedQuery = createSavedSearchQuery({
+    id: `query-${data.nextQueryId}`,
+    query,
+    createdAt,
+  })
+
+  if (savedQuery === undefined) {
+    throw new Error('A saved search query must have an ID and query.')
+  }
 
   data.nextQueryId += 1
   data.queries.unshift(savedQuery)
@@ -86,10 +100,9 @@ const listFavoriteCompetitions = (data: MockUserData) => {
   return Promise.resolve(data.favorites)
 }
 
-const createFavoriteCompetition = (
+const storeFavoriteCompetition = (
   data: MockUserData,
-  favorite: CreateFavoriteRequest,
-  createdAt: string,
+  favorite: FavoriteCompetition,
 ) => {
   const alreadyExists = data.favorites.some((item) => {
     return item.competitionId === favorite.competitionId
@@ -99,7 +112,11 @@ const createFavoriteCompetition = (
     return Promise.resolve(undefined)
   }
 
-  const savedFavorite = { ...favorite, createdAt }
+  const savedFavorite = createFavoriteCompetition(favorite)
+
+  if (savedFavorite === undefined) {
+    throw new Error('A favorite competition must have required fields.')
+  }
   data.favorites.unshift(savedFavorite)
 
   return Promise.resolve(savedFavorite)
@@ -126,8 +143,8 @@ export const createMockUserDataRepositories = (): MockUserDataRepositories => {
 
   return {
     favorites: {
-      create: (favorite, createdAt) => {
-        return createFavoriteCompetition(data, favorite, createdAt)
+      create: (favorite) => {
+        return storeFavoriteCompetition(data, favorite)
       },
       delete: (competitionId) => deleteFavoriteCompetition(data, competitionId),
       list: () => listFavoriteCompetitions(data),

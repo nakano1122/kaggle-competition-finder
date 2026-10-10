@@ -3,7 +3,7 @@ import {
   createEnglishSearchKeyword,
   createEnglishSearchKeywords,
   deduplicateCompetitionCandidates,
-} from './competition-candidate'
+} from '@/domain/competition-candidate'
 
 describe('英語検索キーワード', () => {
   it('前後の空白を除いて作成する', () => {

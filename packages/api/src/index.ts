@@ -1,6 +1,6 @@
-import { createApp } from './app'
+import { createApp } from '@/app'
 
-export { createApp } from './app'
+export { createApp } from '@/app'
 
 const app = createApp()
 

@@ -13,7 +13,7 @@ import {
 import type { SearchHistoryItem } from '@/features/search/lib/search-history-storage'
 import type { SearchRequest } from '@/features/search/lib/search-request-storage'
 import type { PipelineStage } from '@/lib/search-pipeline'
-import type { Competition, Favorite } from '@kaggle-competition-finder/schemas'
+import type { Competition, Favorite } from '@schemas'
 import { useReducer, useRef } from 'react'
 
 type ResultsState = {

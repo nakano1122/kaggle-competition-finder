@@ -19,7 +19,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/shadcn-ui/card'
-import type { Favorite } from '@kaggle-competition-finder/schemas'
+import type { Favorite } from '@schemas'
 
 type ResultsPageProps = {
   initialFavorites: Favorite[]

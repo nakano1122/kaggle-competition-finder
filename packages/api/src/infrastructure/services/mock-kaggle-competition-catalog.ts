@@ -1,5 +1,5 @@
-import type { CompetitionCandidate } from '../../domain/competition-candidate'
-import type { CompetitionCatalog } from '../../domain/services/competition-catalog'
+import type { CompetitionCandidate } from '@/domain/competition-candidate'
+import type { CompetitionCatalog } from '@/domain/services/competition-catalog'
 
 const competitions: CompetitionCandidate[] = [
   {

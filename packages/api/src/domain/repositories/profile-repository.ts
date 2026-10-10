@@ -1,6 +1,8 @@
-import type { Profile } from '@kaggle-competition-finder/schemas'
+import type { ResearchAndDevelopmentExperience } from '@/domain/entities/research-and-development-experience'
 
 export type ProfileRepository = {
-  find: () => Promise<Profile | null>
-  save: (profile: Profile) => Promise<Profile>
+  find: () => Promise<ResearchAndDevelopmentExperience | null>
+  save: (
+    experience: ResearchAndDevelopmentExperience,
+  ) => Promise<ResearchAndDevelopmentExperience>
 }

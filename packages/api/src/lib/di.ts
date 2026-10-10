@@ -1,9 +1,9 @@
-import type { FavoriteCompetitionRepository } from '../domain/repositories/favorite-competition-repository'
-import type { ProfileRepository } from '../domain/repositories/profile-repository'
-import type { SavedQueryRepository } from '../domain/repositories/saved-query-repository'
-import type { CompetitionCatalog } from '../domain/services/competition-catalog'
-import { createMockUserDataRepositories } from '../infrastructure/repositories/mock-user-data-repositories'
-import { createMockKaggleCompetitionCatalog } from '../infrastructure/services/mock-kaggle-competition-catalog'
+import type { FavoriteCompetitionRepository } from '@/domain/repositories/favorite-competition-repository'
+import type { ProfileRepository } from '@/domain/repositories/profile-repository'
+import type { SavedQueryRepository } from '@/domain/repositories/saved-query-repository'
+import type { CompetitionCatalog } from '@/domain/services/competition-catalog'
+import { createMockUserDataRepositories } from '@/infrastructure/repositories/mock-user-data-repositories'
+import { createMockKaggleCompetitionCatalog } from '@/infrastructure/services/mock-kaggle-competition-catalog'
 
 export type ApiDependencies = {
   competitions: CompetitionCatalog
