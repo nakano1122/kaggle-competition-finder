@@ -4,4 +4,12 @@ coverage/
 .wrangler/
 .vite/
 .vitest/
+packages/web/.next/
+packages/web/.open-next/
+packages/web/cloudflare-env.d.ts
+packages/web/next-env.d.ts
+packages/web/tsconfig.tsbuildinfo
+packages/web/.dev.vars
+packages/web/.env*
+!packages/web/.env.example
 packages/api/worker-configuration.d.ts
