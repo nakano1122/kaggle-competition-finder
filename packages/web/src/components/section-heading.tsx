@@ -14,8 +14,8 @@ export const SectionHeading = ({
   title,
 }: SectionHeadingProps) => {
   return (
-    <div className="mb-5 flex items-start justify-between gap-4">
-      <div>
+    <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
+      <div className="min-w-0">
         {number ? (
           <p className="text-xs font-semibold tracking-[0.16em] text-stone-500">
             {number}

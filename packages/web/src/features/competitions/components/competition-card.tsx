@@ -36,11 +36,11 @@ export const CompetitionCard = ({
     <article>
       <Card className="gap-0 rounded-2xl border-stone-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0 flex-1 basis-0">
             <p className="text-xs font-semibold tracking-[0.14em] text-amber-800">
               {competition.category ?? 'Uncategorized'}
             </p>
-            <h3 className="mt-2 text-xl font-semibold text-stone-950">
+            <h3 className="mt-2 break-words text-xl font-semibold text-stone-950">
               {competition.title}
             </h3>
           </div>
@@ -55,7 +55,7 @@ export const CompetitionCard = ({
           </div>
           <div>
             <dt className="font-semibold text-stone-950">コンペ概要</dt>
-            <dd>{competition.description}</dd>
+            <dd className="break-words">{competition.description}</dd>
           </div>
         </dl>
         <section

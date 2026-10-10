@@ -47,7 +47,7 @@ export const HomePage = () => {
     <main className="flex-1">
       <section className="border-b border-stone-200 bg-amber-50">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
-          <div>
+          <div className="min-w-0">
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">
               研究内容や興味から、
               <br className="hidden sm:block" />
@@ -79,13 +79,13 @@ export const HomePage = () => {
             <CardContent className="space-y-5 py-6">
               {steps.map((step) => (
                 <div
-                  className="grid grid-cols-[2.25rem_1fr] gap-3"
+                  className="grid min-w-0 grid-cols-[auto_minmax(0,1fr)] gap-3"
                   key={step.number}
                 >
                   <span className="pt-0.5 text-sm font-semibold text-amber-700">
                     {step.number}
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-semibold text-stone-900">
                       {step.title}
                     </h2>
@@ -127,7 +127,7 @@ export const HomePage = () => {
 
       <section className="border-y border-stone-200 bg-teal-950">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-12 sm:px-8 sm:py-16 md:flex-row md:items-end">
-          <div>
+          <div className="min-w-0">
             <h2 className="text-3xl font-semibold tracking-tight text-stone-50 sm:text-4xl">
               まずは、研究内容や興味から。
             </h2>

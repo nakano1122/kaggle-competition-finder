@@ -77,14 +77,17 @@ export const SearchStartPage = () => {
                 label="研究内容・興味のプレビュー"
               />
             </CardContent>
-            <CardFooter className="justify-between gap-3 border-t border-stone-100 px-5 py-4 sm:px-6">
-              <p aria-live="polite" className="text-sm text-stone-500">
+            <CardFooter className="flex-col items-stretch justify-between gap-3 border-t border-stone-100 px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+              <p
+                aria-live="polite"
+                className="min-w-0 break-words text-sm text-stone-500"
+              >
                 {state.isProfileSaved
                   ? 'このブラウザに保存済みです。'
                   : '保存は任意です。検索だけなら保存せずに進めます。'}
               </p>
               <Button
-                className="border-stone-300 text-stone-700 hover:bg-stone-100"
+                className="w-full border-stone-300 text-stone-700 hover:bg-stone-100 sm:w-auto"
                 disabled={!state.isLoaded}
                 onClick={saveProfile}
                 type="button"

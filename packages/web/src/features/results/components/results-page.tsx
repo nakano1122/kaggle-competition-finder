@@ -54,7 +54,7 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 sm:px-8 sm:py-14">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-5 border-b border-stone-200 pb-6">
-        <div>
+        <div className="min-w-0">
           <h1 className="text-3xl font-semibold tracking-tight text-stone-950 sm:text-4xl">
             コンペの候補を確認する
           </h1>
@@ -82,7 +82,7 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
           </CardContent>
         </Card>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem]">
+        <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,1fr)]">
           <div className="grid min-w-0 gap-6">
             {state.error ? (
               <div
@@ -114,7 +114,7 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
               query={state.query}
             />
           </div>
-          <aside className="grid content-start gap-6 lg:sticky lg:top-6">
+          <aside className="grid min-w-0 content-start gap-6 lg:sticky lg:top-6">
             <SearchHistoryList
               onSelect={selectSearchHistory}
               searches={state.history}

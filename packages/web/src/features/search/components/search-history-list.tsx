@@ -47,11 +47,14 @@ export const SearchHistoryList = ({
                   variant="ghost"
                 >
                   <span className="grid w-full gap-2">
-                    <span className="line-clamp-2 font-medium leading-6">
+                    <span className="min-w-0 overflow-hidden break-words whitespace-normal line-clamp-2 font-medium leading-6">
                       {search.query}
                     </span>
-                    <span className="flex items-center justify-between gap-3 text-xs font-normal text-stone-600">
-                      <time dateTime={search.searchedAt}>
+                    <span className="flex flex-wrap items-center justify-between gap-3 text-xs font-normal text-stone-600">
+                      <time
+                        className="min-w-0 break-words"
+                        dateTime={search.searchedAt}
+                      >
                         {formatDateTime(search.searchedAt)}
                       </time>
                       <span>{resultLabel}</span>
