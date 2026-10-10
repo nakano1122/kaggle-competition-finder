@@ -10,11 +10,11 @@ import type { Competition } from '@kaggle-competition-finder/schemas'
 type ApiMethod = 'DELETE' | 'POST' | 'PUT'
 type ResponseSchema<T> = { parse: (value: unknown) => T }
 
-async function request<T>(
+const request = async <T>(
   path: string,
   schema: ResponseSchema<T>,
   options: { body?: unknown; method?: ApiMethod } = {},
-): Promise<T> {
+): Promise<T> => {
   const response = await fetch(`/api${path}`, {
     method: options.method,
     headers: options.body ? { 'Content-Type': 'application/json' } : undefined,
@@ -30,30 +30,30 @@ async function request<T>(
   return schema.parse(await response.json())
 }
 
-export function updateProfile(content: string) {
+export const updateProfile = (content: string) => {
   return request('/profile', updateProfileResponseSchema, {
     method: 'PUT',
     body: { content },
   })
 }
 
-export function createSavedQuery(query: string) {
+export const createSavedQuery = (query: string) => {
   return request('/queries', createSavedQueryResponseSchema, {
     method: 'POST',
     body: { query },
   })
 }
 
-export function deleteSavedQuery(id: string) {
+export const deleteSavedQuery = (id: string) => {
   return request(`/queries/${id}`, deleteResponseSchema, { method: 'DELETE' })
 }
 
-export function searchCompetitions(keywords: string[]) {
+export const searchCompetitions = (keywords: string[]) => {
   const searchParams = new URLSearchParams({ keywords: keywords.join(',') })
   return request(`/competitions?${searchParams}`, competitionsResponseSchema)
 }
 
-export function createFavorite(competition: Competition) {
+export const createFavorite = (competition: Competition) => {
   return request('/favorites', createFavoriteResponseSchema, {
     method: 'POST',
     body: {
@@ -64,7 +64,7 @@ export function createFavorite(competition: Competition) {
   })
 }
 
-export function deleteFavorite(competitionId: string) {
+export const deleteFavorite = (competitionId: string) => {
   return request(`/favorites/${competitionId}`, deleteResponseSchema, {
     method: 'DELETE',
   })

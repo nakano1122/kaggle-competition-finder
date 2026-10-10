@@ -2,13 +2,13 @@ import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 import { PHASE_DEVELOPMENT_SERVER } from 'next/constants'
 import type { NextConfig } from 'next'
 
-export default function nextConfig(phase: string): NextConfig {
+const nextConfig = (phase: string): NextConfig => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     initOpenNextCloudflareForDev()
   }
 
   return {
-    async rewrites() {
+    rewrites: async () => {
       return [
         {
           source: '/api/:path*',
@@ -18,3 +18,5 @@ export default function nextConfig(phase: string): NextConfig {
     },
   }
 }
+
+export default nextConfig

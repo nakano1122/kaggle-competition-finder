@@ -3,6 +3,8 @@ import { HomePage } from '@/app/(pages)/home-page'
 
 export const dynamic = 'force-dynamic'
 
-export default function Page() {
+const Page = () => {
   return <HomePage initialData={initialDashboardData} />
 }
+
+export default Page

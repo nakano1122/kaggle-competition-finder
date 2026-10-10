@@ -9,11 +9,11 @@ import { SearchProgress } from '@/features/search/components/search-progress'
 import { useDashboard } from '@/features/dashboard/hooks/use-dashboard'
 import type { InitialDashboardData } from '@/lib/mock-data'
 
-export function Dashboard({
+export const Dashboard = ({
   initialData,
 }: {
   initialData: InitialDashboardData
-}) {
+}) => {
   const {
     removeSavedQuery,
     saveProfile,

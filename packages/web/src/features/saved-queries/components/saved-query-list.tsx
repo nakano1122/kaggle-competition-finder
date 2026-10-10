@@ -1,5 +1,8 @@
 import { formatDate } from '@/lib/format-date'
 import { SectionHeading } from '@/components/section-heading'
+import { Badge } from '@/components/shadcn-ui/badge'
+import { Button } from '@/components/shadcn-ui/button'
+import { Card } from '@/components/shadcn-ui/card'
 import type { SavedQuery } from '@kaggle-competition-finder/schemas'
 
 type SavedQueryListProps = {
@@ -8,17 +11,20 @@ type SavedQueryListProps = {
   savedQueries: SavedQuery[]
 }
 
-export function SavedQueryList({
+export const SavedQueryList = ({
   onDelete,
   onSelect,
   savedQueries,
-}: SavedQueryListProps) {
+}: SavedQueryListProps) => {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <Card className="gap-0 rounded-2xl border-slate-200 bg-white p-5 shadow-sm">
       <SectionHeading number="SAVED" title="保存済みクエリ">
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-600">
+        <Badge
+          className="bg-slate-100 px-3 py-1 text-sm text-slate-600"
+          variant="secondary"
+        >
           {savedQueries.length}
-        </span>
+        </Badge>
       </SectionHeading>
       {savedQueries.length === 0 ? (
         <p className="text-sm leading-6 text-slate-500">
@@ -31,30 +37,32 @@ export function SavedQueryList({
               className="border-b border-slate-100 pb-4 last:border-0 last:pb-0"
               key={savedQuery.id}
             >
-              <button
-                className="text-left text-sm font-medium leading-6 text-slate-800 hover:text-indigo-700"
+              <Button
+                className="h-auto justify-start p-0 text-left font-medium leading-6 text-slate-800 hover:text-indigo-700"
                 onClick={() => onSelect(savedQuery.query)}
                 type="button"
+                variant="ghost"
               >
                 {savedQuery.query}
-              </button>
+              </Button>
               <div className="mt-2 flex items-center justify-between gap-3 text-xs text-slate-500">
                 <time dateTime={savedQuery.createdAt}>
                   {formatDate(savedQuery.createdAt)}
                 </time>
-                <button
+                <Button
                   aria-label="保存済みクエリを削除"
-                  className="font-medium text-rose-700 hover:text-rose-800"
+                  className="h-auto p-0 font-medium text-rose-700 hover:text-rose-800"
                   onClick={() => onDelete(savedQuery.id)}
                   type="button"
+                  variant="ghost"
                 >
                   削除
-                </button>
+                </Button>
               </div>
             </li>
           ))}
         </ul>
       )}
-    </section>
+    </Card>
   )
 }

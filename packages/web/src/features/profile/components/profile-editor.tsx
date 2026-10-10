@@ -1,5 +1,7 @@
 import { Panel } from '@/components/panel'
 import { SectionHeading } from '@/components/section-heading'
+import { Button } from '@/components/shadcn-ui/button'
+import { Textarea } from '@/components/shadcn-ui/textarea'
 
 type ProfileEditorProps = {
   isSaving: boolean
@@ -8,20 +10,20 @@ type ProfileEditorProps = {
   profile: string
 }
 
-export function ProfileEditor({
+export const ProfileEditor = ({
   isSaving,
   onChange,
   onSave,
   profile,
-}: ProfileEditorProps) {
+}: ProfileEditorProps) => {
   return (
     <Panel>
       <SectionHeading label="検索の出発点" number="01" title="研究・開発実績" />
       <label className="sr-only" htmlFor="profile">
         研究・開発実績
       </label>
-      <textarea
-        className="min-h-36 w-full rounded-xl border border-slate-300 bg-white p-4 text-sm leading-7 text-slate-800 outline-none transition focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100"
+      <Textarea
+        className="min-h-36 rounded-xl border-slate-300 bg-white p-4 leading-7 text-slate-800 focus-visible:border-indigo-600 focus-visible:ring-indigo-100"
         id="profile"
         onChange={(event) => onChange(event.target.value)}
         rows={6}
@@ -31,14 +33,15 @@ export function ProfileEditor({
         <p className="text-sm text-slate-500">
           専門領域、使った技術、取り組みたい課題を自由に書けます。
         </p>
-        <button
-          className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+        <Button
+          className="border-slate-300 font-semibold text-slate-700 hover:bg-slate-50"
           disabled={isSaving}
           onClick={onSave}
           type="button"
+          variant="outline"
         >
           {isSaving ? '保存中…' : '実績を保存'}
-        </button>
+        </Button>
       </div>
     </Panel>
   )

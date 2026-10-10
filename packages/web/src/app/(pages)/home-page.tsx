@@ -1,11 +1,11 @@
 import { Dashboard } from '@/features/dashboard/components/dashboard'
 import type { InitialDashboardData } from '@/lib/mock-data'
 
-export function HomePage({
+export const HomePage = ({
   initialData,
 }: {
   initialData: InitialDashboardData
-}) {
+}) => {
   return (
     <main>
       <header className="border-b border-slate-200 bg-white">

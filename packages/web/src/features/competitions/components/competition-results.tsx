@@ -1,4 +1,5 @@
 import { CompetitionCard } from './competition-card'
+import { Card } from '@/components/shadcn-ui/card'
 import type { Competition, Favorite } from '@kaggle-competition-finder/schemas'
 
 type CompetitionResultsProps = {
@@ -9,13 +10,13 @@ type CompetitionResultsProps = {
   query: string
 }
 
-export function CompetitionResults({
+export const CompetitionResults = ({
   competitions,
   favorites,
   isSearching,
   onToggleFavorite,
   query,
-}: CompetitionResultsProps) {
+}: CompetitionResultsProps) => {
   const resultMessage = isSearching
     ? 'モックAPIから候補を取得しています。重量級のモデルはこの画面では読み込みません。'
     : competitions.length > 0
@@ -55,14 +56,14 @@ export function CompetitionResults({
           ))}
         </div>
       ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center">
+        <Card className="gap-0 rounded-2xl border-dashed border-slate-300 bg-white p-8 text-center">
           <p className="font-semibold text-slate-800">
             まだ検索結果はありません。
           </p>
           <span className="mt-2 block text-sm leading-6 text-slate-500">
             実績や興味のある課題をもとに、検索クエリを編集してみてください。
           </span>
-        </div>
+        </Card>
       )}
     </section>
   )

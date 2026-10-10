@@ -7,12 +7,12 @@ type SectionHeadingProps = {
   title: string
 }
 
-export function SectionHeading({
+export const SectionHeading = ({
   children,
   label,
   number,
   title,
-}: SectionHeadingProps) {
+}: SectionHeadingProps) => {
   return (
     <div className="mb-5 flex items-start justify-between gap-4">
       <div>

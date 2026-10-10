@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react'
+import { Card } from '@/components/shadcn-ui/card'
 
-export function Panel({ children }: { children: ReactNode }) {
+export const Panel = ({ children }: { children: ReactNode }) => {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <Card className="gap-0 rounded-2xl border-slate-200 bg-white p-6 shadow-sm">
       {children}
-    </section>
+    </Card>
   )
 }

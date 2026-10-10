@@ -43,7 +43,7 @@ type DashboardAction =
   | { favorite: Favorite; type: 'favorite-created' }
   | { competitionId: string; type: 'favorite-deleted' }
 
-function createInitialState(data: InitialDashboardData): DashboardState {
+const createInitialState = (data: InitialDashboardData): DashboardState => {
   return {
     activeStage: null,
     competitions: [],
@@ -59,10 +59,10 @@ function createInitialState(data: InitialDashboardData): DashboardState {
   }
 }
 
-function dashboardReducer(
+const dashboardReducer = (
   state: DashboardState,
   action: DashboardAction,
-): DashboardState {
+): DashboardState => {
   switch (action.type) {
     case 'set-error':
       return {
@@ -121,11 +121,11 @@ function dashboardReducer(
   }
 }
 
-function errorMessage(error: unknown, fallback: string) {
+const errorMessage = (error: unknown, fallback: string) => {
   return error instanceof Error ? error.message : fallback
 }
 
-export function useDashboard(data: InitialDashboardData) {
+export const useDashboard = (data: InitialDashboardData) => {
   const [state, dispatch] = useReducer(
     dashboardReducer,
     data,
@@ -133,7 +133,7 @@ export function useDashboard(data: InitialDashboardData) {
   )
   const searchVersion = useRef(0)
 
-  async function saveProfile() {
+  const saveProfile = async () => {
     const content = state.profile.trim()
 
     if (!content) {
@@ -154,7 +154,7 @@ export function useDashboard(data: InitialDashboardData) {
     }
   }
 
-  async function saveQuery() {
+  const saveQuery = async () => {
     const query = state.query.trim()
 
     if (!query) {
@@ -178,7 +178,7 @@ export function useDashboard(data: InitialDashboardData) {
     }
   }
 
-  async function removeSavedQuery(id: string) {
+  const removeSavedQuery = async (id: string) => {
     try {
       await deleteSavedQuery(id)
       dispatch({ id, type: 'query-deleted' })
@@ -190,7 +190,7 @@ export function useDashboard(data: InitialDashboardData) {
     }
   }
 
-  async function search() {
+  const search = async () => {
     if (!state.query.trim()) {
       dispatch({ error: '検索クエリを入力してください。', type: 'set-error' })
       return
@@ -220,7 +220,7 @@ export function useDashboard(data: InitialDashboardData) {
     }
   }
 
-  async function toggleFavorite(competition: Competition) {
+  const toggleFavorite = async (competition: Competition) => {
     const favorite = state.favorites.find(
       (item) => item.competitionId === competition.id,
     )

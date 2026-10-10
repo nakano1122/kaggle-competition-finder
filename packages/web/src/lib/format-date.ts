@@ -1,4 +1,4 @@
-export function formatDate(value: string | null) {
+export const formatDate = (value: string | null) => {
   if (!value) {
     return '未定'
   }
