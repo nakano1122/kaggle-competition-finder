@@ -9,6 +9,11 @@
     "noEmit": true,
     "skipLibCheck": true,
     "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@schemas": ["../schemas/src/index.ts"]
+    },
     "types": ["./worker-configuration.d.ts"]
   },
   "include": ["src", "worker-configuration.d.ts"]

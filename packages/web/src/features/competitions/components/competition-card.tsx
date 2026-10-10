@@ -2,7 +2,7 @@ import { formatDate } from '@/lib/format-date'
 import { Badge } from '@/components/shadcn-ui/badge'
 import { Button } from '@/components/shadcn-ui/button'
 import { Card } from '@/components/shadcn-ui/card'
-import type { Competition } from '@kaggle-competition-finder/schemas'
+import type { Competition } from '@schemas'
 import Link from 'next/link'
 
 type CompetitionCardProps = {

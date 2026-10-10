@@ -2,8 +2,8 @@ import {
   competitionsResponseSchema,
   createFavoriteResponseSchema,
   deleteResponseSchema,
-} from '@kaggle-competition-finder/schemas'
-import type { Competition } from '@kaggle-competition-finder/schemas'
+} from '@schemas'
+import type { Competition } from '@schemas'
 
 type ApiMethod = 'DELETE' | 'POST' | 'PUT'
 type ResponseSchema<T> = { parse: (value: unknown) => T }

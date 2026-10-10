@@ -1,4 +1,4 @@
-import type { Favorite } from '@kaggle-competition-finder/schemas'
+import type { Favorite } from '@schemas'
 
 export type InitialResultsData = {
   favorites: Favorite[]

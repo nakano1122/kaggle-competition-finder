@@ -1,5 +1,5 @@
-import { competitionsResponseSchema } from '@kaggle-competition-finder/schemas'
-import type { Competition } from '@kaggle-competition-finder/schemas'
+import { competitionsResponseSchema } from '@schemas'
+import type { Competition } from '@schemas'
 
 const storageKey = 'kaggle-competition-finder.search-history'
 const historyLimit = 6

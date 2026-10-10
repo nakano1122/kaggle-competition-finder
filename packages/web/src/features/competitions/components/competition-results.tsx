@@ -1,6 +1,6 @@
 import { CompetitionCard } from './competition-card'
 import { Card } from '@/components/shadcn-ui/card'
-import type { Competition, Favorite } from '@kaggle-competition-finder/schemas'
+import type { Competition, Favorite } from '@schemas'
 
 type CompetitionResultsProps = {
   competitions: Competition[]
