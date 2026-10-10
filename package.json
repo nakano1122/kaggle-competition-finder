@@ -7,10 +7,13 @@
   },
   "scripts": {
     "build": "pnpm --filter @kaggle-competition-finder/web run build && pnpm --filter @kaggle-competition-finder/api run build",
-    "dev": "pnpm --parallel --stream -r --if-present run dev",
+    "dev": "concurrently --kill-others-on-fail --names web,api \"pnpm dev:web\" \"pnpm dev:api\"",
+    "dev:api": "pnpm --filter @kaggle-competition-finder/api run dev",
+    "dev:web": "pnpm --filter @kaggle-competition-finder/web run dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
+    "lint:check": "pnpm lint",
     "test": "pnpm -r --if-present run test",
     "typecheck": "pnpm -r --if-present run typecheck"
   },
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.6",
     "eslint": "^10.12.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
