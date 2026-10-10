@@ -36,7 +36,7 @@ const createGeneratedQuery = (profile: string) => {
     return ''
   }
 
-  return `Find Kaggle competitions where the following experience and interests are useful: ${trimmedProfile}`
+  return `次の研究内容・興味を活かせるKaggleコンペを探してください。\n\n${trimmedProfile}`
 }
 
 const createInitialState = (): SearchStartState => {

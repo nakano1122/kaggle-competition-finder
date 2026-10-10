@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '@/components/shadcn-ui/card'
 import { Textarea } from '@/components/shadcn-ui/textarea'
+import { MarkdownPreview } from '@/components/markdown-preview'
 import { useSearchStart } from '@/features/search/hooks/use-search-start'
 import type { ChangeEvent, FormEvent } from 'react'
 
@@ -17,7 +18,7 @@ const profilePlaceholder =
   '例: 医療画像の分類を研究しています。Python と深層学習を活用でき、社会課題に関わるテーマに興味があります。'
 
 const queryPlaceholder =
-  '研究内容・興味を入力すると、ここに検索用の英語クエリを生成します。'
+  '研究内容・興味を入力すると、ここに検索用の日本語クエリを生成します。'
 
 export const SearchStartPage = () => {
   const { saveProfile, setProfile, setQuery, startSearch, state } =
@@ -58,7 +59,7 @@ export const SearchStartPage = () => {
                 これまでの経験や、これから取り組みたいテーマを書いてください。
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-5 pt-5 sm:px-6">
+            <CardContent className="space-y-4 px-5 pt-5 sm:px-6">
               <label className="sr-only" htmlFor="profile">
                 研究内容・興味
               </label>
@@ -70,6 +71,10 @@ export const SearchStartPage = () => {
                 placeholder={profilePlaceholder}
                 rows={6}
                 value={state.profile}
+              />
+              <MarkdownPreview
+                content={state.profile}
+                label="研究内容・興味のプレビュー"
               />
             </CardContent>
             <CardFooter className="justify-between gap-3 border-t border-stone-100 px-5 py-4 sm:px-6">
@@ -96,10 +101,10 @@ export const SearchStartPage = () => {
                 LLMで生成したクエリ
               </CardTitle>
               <CardDescription className="leading-6 text-stone-600">
-                研究内容・興味から作成した英語クエリです。必要なら編集できます。
+                研究内容・興味から作成した日本語クエリです。必要なら編集できます。
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-5 pt-5 sm:px-6">
+            <CardContent className="space-y-4 px-5 pt-5 sm:px-6">
               <label className="sr-only" htmlFor="query">
                 LLMで生成したクエリ
               </label>
@@ -111,6 +116,10 @@ export const SearchStartPage = () => {
                 placeholder={queryPlaceholder}
                 rows={5}
                 value={state.query}
+              />
+              <MarkdownPreview
+                content={state.query}
+                label="LLMで生成したクエリのプレビュー"
               />
             </CardContent>
           </Card>
