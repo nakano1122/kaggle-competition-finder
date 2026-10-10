@@ -34,36 +34,36 @@ export const CompetitionCard = ({
 }: CompetitionCardProps) => {
   return (
     <article>
-      <Card className="gap-0 rounded-2xl border-slate-200 bg-white p-6 shadow-sm">
+      <Card className="gap-0 rounded-2xl border-stone-200 bg-white p-6 shadow-sm">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-semibold tracking-[0.14em] text-indigo-700">
+            <p className="text-xs font-semibold tracking-[0.14em] text-amber-800">
               {competition.category ?? 'Uncategorized'}
             </p>
-            <h3 className="mt-2 text-xl font-semibold text-slate-950">
+            <h3 className="mt-2 text-xl font-semibold text-stone-950">
               {competition.title}
             </h3>
           </div>
-          <Badge className="bg-indigo-50 text-indigo-700" variant="secondary">
+          <Badge className="bg-amber-50 text-amber-800" variant="secondary">
             モック候補
           </Badge>
         </div>
-        <dl className="mt-5 grid gap-4 text-sm leading-6 text-slate-700">
+        <dl className="mt-5 grid gap-4 text-sm leading-6 text-stone-700">
           <div>
-            <dt className="font-semibold text-slate-950">締切</dt>
+            <dt className="font-semibold text-stone-950">締切</dt>
             <dd>{formatDate(competition.deadline)}</dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-950">コンペ概要</dt>
+            <dt className="font-semibold text-stone-950">コンペ概要</dt>
             <dd>{competition.description}</dd>
           </div>
         </dl>
         <section
-          className="mt-5 rounded-xl bg-slate-50 p-4"
+          className="mt-5 rounded-xl bg-stone-50 p-4"
           aria-label="日本語要約"
         >
-          <h4 className="font-semibold text-slate-950">日本語要約（モック）</h4>
-          <p className="mt-2 text-sm leading-6 text-slate-700">
+          <h4 className="font-semibold text-stone-950">日本語要約（モック）</h4>
+          <p className="mt-2 text-sm leading-6 text-stone-700">
             {summarizeCompetition(competition)}
           </p>
         </section>
@@ -71,17 +71,17 @@ export const CompetitionCard = ({
           className="mt-3 rounded-xl bg-amber-50 p-4"
           aria-label="推薦理由"
         >
-          <h4 className="font-semibold text-slate-950">
+          <h4 className="font-semibold text-stone-950">
             実績との関連性（モック）
           </h4>
-          <p className="mt-2 text-sm leading-6 text-slate-700">
+          <p className="mt-2 text-sm leading-6 text-stone-700">
             {explainRelevance(competition, query)}
           </p>
         </section>
         <div className="mt-5 flex flex-wrap gap-3">
           <Button
             asChild
-            className="font-semibold text-indigo-700 hover:bg-indigo-50"
+            className="font-semibold text-amber-800 hover:bg-amber-50"
             variant="ghost"
           >
             <Link href={competition.url} rel="noreferrer" target="_blank">
@@ -90,7 +90,7 @@ export const CompetitionCard = ({
           </Button>
           <Button
             aria-pressed={isFavorite}
-            className="border-slate-300 font-semibold text-slate-700 hover:bg-slate-50"
+            className="border-stone-300 font-semibold text-stone-700 hover:bg-stone-50"
             onClick={() => onToggleFavorite(competition)}
             type="button"
             variant="outline"

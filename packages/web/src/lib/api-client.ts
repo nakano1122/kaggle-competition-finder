@@ -1,9 +1,7 @@
 import {
   competitionsResponseSchema,
   createFavoriteResponseSchema,
-  createSavedQueryResponseSchema,
   deleteResponseSchema,
-  updateProfileResponseSchema,
 } from '@kaggle-competition-finder/schemas'
 import type { Competition } from '@kaggle-competition-finder/schemas'
 
@@ -28,24 +26,6 @@ const request = async <T>(
   }
 
   return schema.parse(await response.json())
-}
-
-export const updateProfile = (content: string) => {
-  return request('/profile', updateProfileResponseSchema, {
-    method: 'PUT',
-    body: { content },
-  })
-}
-
-export const createSavedQuery = (query: string) => {
-  return request('/queries', createSavedQueryResponseSchema, {
-    method: 'POST',
-    body: { query },
-  })
-}
-
-export const deleteSavedQuery = (id: string) => {
-  return request(`/queries/${id}`, deleteResponseSchema, { method: 'DELETE' })
 }
 
 export const searchCompetitions = (keywords: string[]) => {

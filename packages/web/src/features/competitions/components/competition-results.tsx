@@ -18,26 +18,26 @@ export const CompetitionResults = ({
   query,
 }: CompetitionResultsProps) => {
   const resultMessage = isSearching
-    ? 'モックAPIから候補を取得しています。重量級のモデルはこの画面では読み込みません。'
+    ? '候補を検索しています。'
     : competitions.length > 0
-      ? `${competitions.length}件の候補を表示しています。関連度の再順位付けは後続のブラウザ内推論で置き換えます。`
-      : '検索すると、モックAPIの候補とモック要約をここに表示します。'
+      ? `${competitions.length}件の候補を表示しています。`
+      : '検索した候補をここに表示します。'
 
   return (
     <section aria-labelledby="results-heading">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-slate-500">
-            04
+          <p className="text-xs font-semibold tracking-[0.16em] text-stone-500">
+            RESULTS
           </p>
           <h2
-            className="mt-1 text-xl font-semibold text-slate-950"
+            className="mt-1 text-xl font-semibold text-stone-950"
             id="results-heading"
           >
             検索結果
           </h2>
         </div>
-        <p aria-live="polite" className="max-w-xl text-sm text-slate-500">
+        <p aria-live="polite" className="max-w-xl text-sm text-stone-600">
           {resultMessage}
         </p>
       </div>
@@ -56,12 +56,12 @@ export const CompetitionResults = ({
           ))}
         </div>
       ) : (
-        <Card className="gap-0 rounded-2xl border-dashed border-slate-300 bg-white p-8 text-center">
-          <p className="font-semibold text-slate-800">
+        <Card className="gap-0 rounded-2xl border-dashed border-stone-300 bg-white p-8 text-center">
+          <p className="font-semibold text-stone-800">
             まだ検索結果はありません。
           </p>
-          <span className="mt-2 block text-sm leading-6 text-slate-500">
-            実績や興味のある課題をもとに、検索クエリを編集してみてください。
+          <span className="mt-2 block text-sm leading-6 text-stone-600">
+            経験や関心を検索クエリに書いて、検索してみてください。
           </span>
         </Card>
       )}
