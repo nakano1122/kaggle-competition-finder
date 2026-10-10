@@ -330,8 +330,6 @@ Reranking処理はWeb Workerで実行し、画面操作を妨げないように�
 
 D1へのアクセスにはCloudflare公式Binding APIとPrepared Statementを利用する。
 
-初期実装ではORMを導入しない。
-
 ## 8. API設計
 
 HonoでREST APIを提供する。
