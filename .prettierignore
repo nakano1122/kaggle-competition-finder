@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+.wrangler/
+.vite/
+.vitest/
+packages/api/worker-configuration.d.ts
