@@ -27,11 +27,8 @@ export const CompetitionResults = ({
     <section aria-labelledby="results-heading">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-stone-500">
-            RESULTS
-          </p>
           <h2
-            className="mt-1 text-xl font-semibold text-stone-950"
+            className="text-xl font-semibold text-stone-950"
             id="results-heading"
           >
             検索結果

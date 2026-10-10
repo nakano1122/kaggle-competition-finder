@@ -55,10 +55,7 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
     <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 sm:px-8 sm:py-14">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-5 border-b border-stone-200 pb-6">
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-teal-800">
-            SEARCH RESULTS
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-stone-950 sm:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-stone-950 sm:text-4xl">
             コンペの候補を確認する
           </h1>
         </div>
@@ -97,9 +94,6 @@ export const ResultsPage = ({ initialFavorites }: ResultsPageProps) => {
             ) : null}
             <Card className="gap-0 border-stone-200 bg-white py-0 shadow-sm">
               <CardHeader className="py-5">
-                <p className="text-xs font-semibold tracking-[0.14em] text-teal-800">
-                  GENERATED QUERY
-                </p>
                 <CardTitle className="text-lg text-stone-950">
                   検索に使用したクエリ
                 </CardTitle>

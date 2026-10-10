@@ -18,7 +18,7 @@ export const SearchHistoryList = ({
 }: SearchHistoryListProps) => {
   return (
     <Card className="gap-0 rounded-2xl border-stone-200 bg-white p-5 shadow-sm">
-      <SectionHeading number="HISTORY" title="検索履歴">
+      <SectionHeading title="検索履歴">
         <Badge
           className="bg-stone-100 px-3 py-1 text-sm text-stone-700"
           variant="secondary"

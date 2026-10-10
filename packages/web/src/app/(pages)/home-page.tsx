@@ -48,10 +48,7 @@ export const HomePage = () => {
       <section className="border-b border-stone-200 bg-amber-50">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
           <div>
-            <p className="text-sm font-semibold tracking-[0.18em] text-teal-800">
-              KAGGLE COMPETITION FINDER
-            </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">
               研究内容や興味から、
               <br className="hidden sm:block" />
               Kaggleコンペを探す。
@@ -105,10 +102,7 @@ export const HomePage = () => {
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold tracking-[0.14em] text-amber-700">
-            HOW IT HELPS
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl">
             経験を手がかりに、コンペを見つける。
           </h2>
         </div>
@@ -134,10 +128,7 @@ export const HomePage = () => {
       <section className="border-y border-stone-200 bg-teal-950">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-12 sm:px-8 sm:py-16 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold tracking-[0.14em] text-amber-300">
-              READY TO EXPLORE
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-stone-50 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-stone-50 sm:text-4xl">
               まずは、研究内容や興味から。
             </h2>
           </div>

@@ -1,6 +1,5 @@
 'use client'
 
-import { Badge } from '@/components/shadcn-ui/badge'
 import { Button } from '@/components/shadcn-ui/button'
 import {
   Card,
@@ -41,13 +40,7 @@ export const SearchStartPage = () => {
     <main className="flex-1 bg-stone-50 text-stone-950">
       <div className="mx-auto w-full max-w-2xl px-5 py-10 sm:px-8 sm:py-14">
         <div className="mb-8">
-          <Badge
-            className="border-stone-300 bg-stone-100 text-stone-700 hover:bg-stone-100"
-            variant="outline"
-          >
-            KAGGLE COMPETITION SEARCH
-          </Badge>
-          <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
             研究内容・興味から、Kaggleコンペを探す
           </h1>
           <p className="mt-3 text-sm leading-7 text-stone-600 sm:text-base">

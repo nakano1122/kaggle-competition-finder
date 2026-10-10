@@ -17,7 +17,7 @@ export const SearchProgress = ({
 
   return (
     <Panel>
-      <SectionHeading number="03" title="検索の進捗">
+      <SectionHeading title="検索の進捗">
         <Badge
           className="bg-stone-100 px-3 py-1 text-sm text-stone-700"
           variant="secondary"

@@ -8,7 +8,7 @@ import Link from 'next/link'
 export const FavoriteList = ({ favorites }: { favorites: Favorite[] }) => {
   return (
     <Card className="gap-0 rounded-2xl border-stone-200 bg-white p-5 shadow-sm">
-      <SectionHeading number="FAVORITES" title="お気に入り">
+      <SectionHeading title="お気に入り">
         <Badge
           className="bg-stone-100 px-3 py-1 text-sm text-stone-700"
           variant="secondary"
