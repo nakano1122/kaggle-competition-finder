@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@kaggle-competition-finder/schemas": "workspace:*",
     "@huggingface/transformers": "^4.3.1",
     "@mlc-ai/web-llm": "^0.2.85",
     "hono": "^4.13.13",
