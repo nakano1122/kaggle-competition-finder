@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { competitionsResponseSchema } from '@kaggle-competition-finder/schemas'
-import { createApp } from './index'
+import { createApp } from './app'
 
 describe('mock API', () => {
   it('updates and returns the profile', async () => {
